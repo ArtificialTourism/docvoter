@@ -18,17 +18,16 @@ $userobj = callAPI($myURL, $options, 'obj');
 
 if($userobj && is_object($userobj) && $userobj->id) {
     $_SESSION['user'] = $userobj;
-    
-    $name = $userobj->username; 
+    //$name = $userobj->username; 
 
-    if($userobj->first_name!='' && !$userobj->last_name) {
-    	$name = $userobj->first_name;
-    } elseif($userobj->first_name!='' && $userobj->last_name!='') {
-    	$name = $userobj->first_name." ".$userobj->last_name;
-    } elseif($userobj->last_name!='') {
-    	$name = $userobj->last_name;
-    }
-    $_SESSION['user_name'] = $name;
+    // if($userobj->first_name!='' && !$userobj->last_name) {
+    //      $name = $userobj->first_name;
+    //     } elseif($userobj->first_name!='' && $userobj->last_name!='') {
+    //      $name = $userobj->first_name." ".$userobj->last_name;
+    //     } elseif($userobj->last_name!='') {
+    //      $name = $userobj->last_name;
+    //     }
+    $_SESSION['user_name'] = get_name($userobj);
     echo(json_encode($userobj));
 } else {
     echo $userobj;

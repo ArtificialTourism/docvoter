@@ -32,9 +32,15 @@ if(in_array($page,$admin_pages)) {
 //do required page
 switch($page) {
     case 'logout':
+           // var_dump($_SESSION);
             $_SESSION['survey']=NULL;
+            $_SESSION['code']=NULL;
 	        $_SESSION['user']=NULL;
 	        $_SESSION['user_name']=NULL;
+	        $_SESSION['event_id']=NULL;
+	        $_SESSION['event_name']=NULL;
+	        $_SESSION['event_private']=NULL;
+	        $_SESSION['event_owner']=NULL;
 	        header("Location: index.php"); 
 	        exit;
 	    break;
@@ -72,7 +78,6 @@ switch($page) {
     case 'decks':
             $data['decks'] = callAPI("deck", array('include_card_count'=>1), 'obj');
             $data['steep'] = $steep;
-            
             view('decks', $data);
         break;
     case 'deck':
@@ -236,13 +241,17 @@ switch($page) {
                 view('card',$data);
             break;
     case 'vote':
-    	    allow(is('user'));
     	    $event_id = get('event');
             if (isset($event_id)) {
                 $event = callAPI("event/get?id=$event_id&include_owner=1", array(), 'obj');
                 if (empty($event) || !$event->id) {
                     //404 error
                     show_error("Sorry, the event you have requested does not exist.", "Make sure that you have the correct URL and that the owner hasn't deleted it.");
+                }
+                if($event->auto_publish && !isset($_SESSION['user'])){
+                   allow(is('anon'));
+                } else{
+                    allow(is('user'));
                 }
                 if(isset($event->owner_user)) {
                     $event_org_id = $event->owner_user->organisation_id;
@@ -341,6 +350,9 @@ switch($page) {
                     			$data['event_org'] = $event_org;
                     		}
                     	}
+                    }
+                    if($event->auto_publish && !isset($_SESSION['user'])){
+                       allow(is('anon'));
                     }
                     if (isset($event->password)){
                         if ($event->password==$_SESSION['code']){

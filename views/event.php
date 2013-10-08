@@ -12,6 +12,7 @@
 	    </div>
     </div>
 </div>
+<?php var_dump($event);?>
 <!-- END PAGE BREADCRUMBS/TITLE -->
 <div class="container_4">
 <div class="grid-wrap">
@@ -27,6 +28,10 @@
 						<label class="align-left">
 							<span>Event name<strong class="red">*</strong></span>
 							<input class="textbox l required editable" name="name" id="name" type="text" value="<?php if(isset($event->name)){echo($event->name);}?>" />
+						</label>
+						<label class="align-left">
+							<span>Event headline</span>
+							<input class="textbox l editable" name="summary" id="summary" type="text" value="<?php if(isset($event->summary)){echo($event->summary);}?>" />
 						</label>
 							<!-- Text Field -->
     						<label class="align-left" for="textField">
@@ -70,11 +75,18 @@
 						         <input type="hidden" name="auto_close" value="false" />
                                 <label>
                                     <input type="checkbox" name="auto_close" value="true" <?php if(isset($event) && $event->auto_close){echo 'checked';}?> class="editable" /> Close event automatically after end date</label></p>
+							 <!-- <p class="check-pair">
+							                              <input type="hidden" name="auto_publish" value="false" />
+							                                   <label>
+							                             <input type="checkbox" name="auto_publish" value="true" <?php if(isset($event) && $event->auto_publish){echo 'checked';}?> class="editable" />
+							                             Auto-publish submitted drivers
+							                         </label>
+							                         </p> -->
 							 <p class="check-pair">
 							     <input type="hidden" name="auto_publish" value="false" />
  							      <label>
 							    <input type="checkbox" name="auto_publish" value="true" <?php if(isset($event) && $event->auto_publish){echo 'checked';}?> class="editable" />
-							    Auto-publish submitted drivers
+							    Allow anonymous votes &amp; issue submissions (no login required for event)
 							</label>
 							</p>
 							<p class="check-pair">  
@@ -118,7 +130,7 @@
 		    	    <p><strong class="red">*</strong> Indicates required fields</p>
     				<p>The driver categories are used to display the different groupings of issues. The Foresight team typically use STEEP however requests can be made for other categories - but these need to be set-up manually, contact the Foresight team if you need to do this.</p>
 
-                    <p>We recommend you select the Auto-publish submitted drivers.</p>
+                    <!-- <p>We recommend you select the Auto-publish submitted drivers.</p> -->
 
                     <p>If you want to include a survey to link through to voter demographics please contact the foresight team before setting up event.</p>
     			</div>
@@ -365,6 +377,7 @@
       if($("#event").valid()){
           $(window).unbind("beforeunload");
           $.post('includes/callAPI.php', action+'&'+$("#event").serialize(), function(data) {
+              window.alert($("#event").serialize());
               var saved_event = eval(jQuery.parseJSON(data));
               if (saved_event.id){
                   edit_event = saved_event.id;

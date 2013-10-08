@@ -70,7 +70,7 @@
 	        <div class="grid_2 align_right">
 	            <div class="user_nav">
 	        <a href="<?php echo BASE_URL;?>">home</a> | 
-    		<?php if (!is('user')): ?>
+    		<?php if (!is('user')||$_SESSION['user_name']=='anonymous'): ?>
     		    <a href="index.php?do=login" class="signout">sign in</a>
     		<?php else: ?>
     		    <?php echo($_SESSION['user_name']);?>: 

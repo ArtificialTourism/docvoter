@@ -1,8 +1,11 @@
-<?php //var_dump($event); ?>
+<?php //var_dump($_SESSION['user']); ?>
 <!-- BEGIN HOMEPAGE -->
 <div class="container_4">
 	    <div class="grid-wrap m-top" class="clearfix">
     		<?php if(!isset($_SESSION['user']->id)){ echo('<div class="grid_3b">'); } else{ echo('<div class="grid_3">');}?>
+    		    <?php if (isset($event->summary)&&$event->summary!=''){?>
+    		    <h2><?php echo($event->summary);?></h2>
+    		    <?php }?>
     		    <?php if (isset($event->description)&&$event->description!=''){?>
     		    <div class="pad-r">
     		       <?php echo nl2br($event->description) ?>

@@ -61,6 +61,17 @@ function allow($allowed,$error_params=array('Sorry,','You must be an admin to do
 function is($role='admin', $object=null) {
 	$auth = false;
 	switch($role) {
+	    //adding anonymous users
+	    case 'anon':
+	            if(!isset($_SESSION['user'])){
+	                $options =Array();
+	                $options['id']=159;
+	                $userobj = callAPI('user',$options,'obj');
+	                $_SESSION['user'] = $userobj;
+	                $_SESSION['user_name'] = get_name($userobj);
+	                //var_dump($userobj);
+	            }
+	            $auth = true;
 		case 'user':
 		        if(isset($_SESSION['user'])
 		            && is_object($_SESSION['user'])
@@ -136,7 +147,7 @@ function show_error($h1, $body, $type="404"){
         $title = "Private event, you must login to access contents";
         default:
         header("Status: 404 Not Found");
-        $title = "Private event, you must login to access contents";
+        $title = "Event not found";
     }
     global $data;
     $data['message_h1'] = $message_h1;
@@ -213,11 +224,9 @@ function top($count, $votes) {
  * @param PHPFrame_User $owner
  */
 function get_name($owner) {
-	$name = "Anon";
-	
+	$name = "Anonymous";
 	if($owner && is_object($owner) && $owner->username) {
 		$name = $owner->username; 
-	
 	    if($owner->first_name && !$owner->last_name) {
 	    	$name = $owner->first_name;
 	    } elseif($owner->first_name && $owner->last_name) {

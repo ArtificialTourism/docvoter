@@ -3,9 +3,11 @@
 	<div id="page-heading" class="clearfix">
 	    <div class="grid-wrap">
     		<div class="grid_3">
+    		    <?php if (isset($event->summary)&&$event->summary!=''){?>
+    		    <h2><?php echo($event->summary);?></h2>
+    		    <?php }?>
     		       <ul id="category-nav">
-    		           <li><a id="top50" class="active" href="">top <?php echo count($top50);?></a></li><?php 
-    		          $cols = array('ec248e','d8a50e','339999','ff5e10','0c8b32','b0126f','062b60','a17317','53b9be','adadad','f83f5f');
+    		           <li><a id="top50" class="active" href=""><?php if (count($top50) < 50) { echo('view all'); } else { echo('top '.count($top50)); } ?></a></li><?php $cols = array('67403a','6b8f66','e82c2a','ec248e','d8a50e','339999','ff5e10','0c8b32','b0126f','062b60','a17317','53b9be','adadad','f83f5f');
     		          $count=0;
     		           foreach($collection['categories'] as $cat_id=>$category){
     		               $clean_cat = dirify($category);
@@ -16,13 +18,13 @@
                      	       $steepclass = $clean_cat;
                      	       $style = 'style="color:#'.$cols[$count].'; border-color:#'.$cols[$count].';"';
                      	    }
-                           echo "<li><a href='' id='$clean_cat' class='tab $steepclass' $style>$category</a></li>";
+                           echo "<li><a href='#' id='$clean_cat' class='tab $steepclass' $style>$category</a></li>";
                            $count++;
                        } unset($count); unset($style); ?>
     		       </ul>
     		</div>
     		<div class="grid_1 align_right add-driver">
-    				<a href="index.php?do=card&event=<?php echo $event->id?>" class="button blue large">+ add driver</a>
+    			    <!-- <a href="index.php?do=card&event=<?php echo $event->id?>" class="button blue large">+ add driver</a> -->
     		</div>
 	    </div>
     </div>
