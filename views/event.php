@@ -12,7 +12,7 @@
 	    </div>
     </div>
 </div>
-<?php var_dump($event);?>
+<?php //var_dump($event);?>
 <!-- END PAGE BREADCRUMBS/TITLE -->
 <div class="container_4">
 <div class="grid-wrap">
