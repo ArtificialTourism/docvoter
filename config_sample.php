@@ -21,4 +21,5 @@ define('DEFAULT_EVENT_ID',1);
 define('SUPERADMIN_GROUP_ID',1);
 define('ADMIN_GROUP_ID',2);
 define('USER_GROUP_ID',3);
+
 ?>
