@@ -377,7 +377,6 @@
       if($("#event").valid()){
           $(window).unbind("beforeunload");
           $.post('includes/callAPI.php', action+'&'+$("#event").serialize(), function(data) {
-              window.alert($("#event").serialize());
               var saved_event = eval(jQuery.parseJSON(data));
               if (saved_event.id){
                   edit_event = saved_event.id;
