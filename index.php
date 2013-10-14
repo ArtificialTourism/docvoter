@@ -296,12 +296,13 @@ switch($page) {
             if($event->end!=0 && $event->end < time() && $event->auto_close){
                 $page = 'results';
             } else{
-                if (!isset($event->password)){
+                if (!isset($event->password)||$event->password==''){
                     view('vote',$data);
                 } else{
                     if ($event->password==$_SESSION['code']){
                         view('vote',$data);
                     } else{
+                        var_dump($event);
                         view('event_login', $data);
                     }
                 }
@@ -339,7 +340,7 @@ switch($page) {
                 $data['votes'] = $votes;
                 $data['steep'] = $steep;
             }
-            if (!isset($event->password)){
+            if (!isset($event->password)||$event->password==''){
                 view('results',$data);
             } else{
                 if ($event->password==$_SESSION['code']){

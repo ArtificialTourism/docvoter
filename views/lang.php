@@ -61,7 +61,8 @@
 <body>
     <!-- BEGIN PAGE BREADCRUMBS/TITLE -->
     <div class="wrapper align_center langs">
-        <h2>Please select your language:</h2>
+        <h2>Expo2020 Dubai – Voting Exercise</h2>
+        <h3>Please select your language</h3>
         <div>
     	<a href="index.php?event=57&lang=en" class="">English</a>
     	<a href="index.php?event=61&lang=fr">Fran&ccedil;ais</a>
