@@ -2,6 +2,9 @@
 <div class="container_4">
 	<div id="page-heading" class="clearfix">
 	    <div class="grid-wrap">
+			<div class="grid_1 align_right add-driver float_right">
+    			    <!-- <a href="index.php?do=card&event=<?php echo $event->id?>" class="button blue large">+ add driver</a> -->
+    		</div>
     		<div class="grid_3">
     		    <?php if (isset($event->summary)&&$event->summary!=''){?>
     		    <h2><?php echo($event->summary);?></h2>
@@ -23,9 +26,7 @@
                        } unset($count); unset($style); ?>
     		       </ul>
     		</div>
-    		<div class="grid_1 align_right add-driver">
-    			    <!-- <a href="index.php?do=card&event=<?php echo $event->id?>" class="button blue large">+ add driver</a> -->
-    		</div>
+    		
 	    </div>
     </div>
 </div>
@@ -57,7 +58,7 @@
     		       </ul>
     		       <?php } else { echo('<h3 class="content no-cap push-down">This event has no drivers yet. <a href="index.php?do=card&event='.$event->id.'">+ add your driver here</a>.</h3>');}?>
     		     </div>
-    		     <p>Click on the tabs above to see more drivers under each category.</p>
+    		     <p><?php if($data['event']->id==61){echo("Cliquez sur les onglets ci-dessus pour voir plus de moteurs dans chaque cat&eacute;gorie.");}else{echo('Click on the tabs above to see more drivers under each category.');}?></p>
     		</div>
 	    </div>
 </div>

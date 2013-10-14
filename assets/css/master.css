@@ -176,7 +176,7 @@ body {
 	padding: 3px 3px 5px;
 	color: #fff;
 }
-#eyebrow-navigation .user_nav a:hover {
+#eyebrow-navigation .user_nav a:hover,#eyebrow-navigation .user_nav a.active  {
 	color: #fff;
 	background-color: #000;
 }
