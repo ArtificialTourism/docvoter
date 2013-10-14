@@ -70,11 +70,11 @@
 	        <div class="align_right float_right">
 	        <div class="user_nav">
 	        <?php if($event->id==57){?>
-    			<a href="#" class="active">english</a> |
-    			<a href="index.php?event=61" class="">fran&ccedil;aise</a>
+    			<a href="#" class="active">EN</a> |
+    			<a href="index.php?event=61" class="">FR</a>
     	    <?php } elseif($event->id==61){?>
-    	        <a href="index.php?event=57" class="">english</a> |
-    	        <a href="#" class="active">fran&ccedil;aise</a>
+    	        <a href="index.php?event=57" class="">EN</a> |
+    	        <a href="#" class="active">FR</a>
     		<?php }else{ ?>
 	        <a href="<?php echo BASE_URL;?>">home</a> | 
     		<?php if (!is('user')||$_SESSION['user_name']=='anonymous'): ?>
