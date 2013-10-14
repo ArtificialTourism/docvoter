@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
- <title>Please select your language</title>
+ <title>Expo2020 Dubai – Voting Exercise</title>
 <link rel="shortcut icon" id="favicon" type="image/png" href="assets/images/favicon.png" />
 <!-- Apple iOS Web App Settings -->
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
