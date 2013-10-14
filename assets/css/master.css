@@ -1968,4 +1968,20 @@ ul#tag-list li{
 #ui-datepicker-div {
     display: none;
 }
+.langs{
+	padding-top: 60px;
+}
+.langs div{
+	padding-top: 20px;
+}
+.langs a {
+	border: 1px solid #ebebeb;
+	padding: 6px;
+	font-weight: bold;
+	font-size: 15px;
+}
+.langs a:hover{
+	background-color: #266eaa;
+	color: #fff;
+}
 

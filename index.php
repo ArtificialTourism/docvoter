@@ -7,8 +7,12 @@ require_once 'includes/functions.php';
 $page = get('do');
 $event_id = get('event');
 $event_pass = get('pass');
+$lang = get('lang');
 if (isset($event_pass)){
     $_SESSION['code'] = $event_pass;
+}
+if (isset($lang)){
+    $_SESSION['lang'] = $lang;
 }
 //
 if(!$page && !$event_id){
@@ -50,6 +54,7 @@ switch($page) {
 	        $_SESSION['event_name']=NULL;
 	        $_SESSION['event_private']=NULL;
 	        $_SESSION['event_owner']=NULL;
+	        $_SESSION['lang']=NULL;
 	        header("Location: index.php"); 
 	        exit;
 	    break;
@@ -252,6 +257,10 @@ switch($page) {
     case 'vote':
     	    //$event_id = get('event');
             if (isset($event_id)) {
+                if(($event_id==57 || $event_id==61) && !isset($_SESSION['lang'])){
+                    view('lang');
+                    break;
+                }
                 $event = callAPI("event/get?id=$event_id&include_owner=1", array(), 'obj');
                 if (empty($event) || !$event->id) {
                     //404 error

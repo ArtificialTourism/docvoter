@@ -121,14 +121,17 @@ function view($page="home", $data=array()) {
     foreach($data as $key=>$value) {
     	$$key = $value;
     }
-    
-	require_once(VIEW_PATH.'partials/header.php');
+    if ($page!='lang'){
+        require_once(VIEW_PATH.'partials/header.php');
+    }
 	if(file_exists(VIEW_PATH."$page.php")) {
         require_once(VIEW_PATH."$page.php");
 	} else {
 		//TODO: Error if view chosen doesn't exist?
 	}
-    require_once(VIEW_PATH.'partials/footer.php');
+	if ($page!='lang'){
+        require_once(VIEW_PATH.'partials/footer.php');
+    }
 }
 
 /**

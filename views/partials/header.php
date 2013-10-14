@@ -71,9 +71,9 @@
 	        <div class="user_nav">
 	        <?php if($event->id==57){?>
     			<a href="#" class="active">EN</a> |
-    			<a href="index.php?event=61" class="">FR</a>
+    			<a href="index.php?event=61&lang=fr" class="">FR</a>
     	    <?php } elseif($event->id==61){?>
-    	        <a href="index.php?event=57" class="">EN</a> |
+    	        <a href="index.php?event=57&lang=en" class="">EN</a> |
     	        <a href="#" class="active">FR</a>
     		<?php }else{ ?>
 	        <a href="<?php echo BASE_URL;?>">home</a> | 
