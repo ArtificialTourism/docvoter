@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
- <title>Expo2020 Dubai – Voting Exercise</title>
+ <title>Dubai Expo 2020 – Subtheme Discussion Vote</title>
 <link rel="shortcut icon" id="favicon" type="image/png" href="assets/images/favicon.png" />
 <!-- Apple iOS Web App Settings -->
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
@@ -61,11 +61,12 @@
 <body>
     <!-- BEGIN PAGE BREADCRUMBS/TITLE -->
     <div class="wrapper align_center langs">
-        <h2>Expo2020 Dubai – Voting Exercise</h2>
-        <h3>Please select your language</h3>
+        <h2>Dubai Expo 2020 – Subtheme Discussion Vote</h2>
+        <!-- <h3>Please select your language</h3> -->
+        <h3>Voting has not yet opened.</h3>
         <div>
-    	<a href="index.php?event=57&lang=en" class="">English</a>
-    	<a href="index.php?event=61&lang=fr">Fran&ccedil;ais</a>
+            <!-- <a href="index.php?event=57&lang=en" class="">English</a>
+                      <a href="index.php?event=61&lang=fr">Fran&ccedil;ais</a> -->
     	</div>
     </div>
 </body>
