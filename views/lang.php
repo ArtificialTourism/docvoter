@@ -62,11 +62,10 @@
     <!-- BEGIN PAGE BREADCRUMBS/TITLE -->
     <div class="wrapper align_center langs">
         <h2>Dubai Expo 2020 – Subtheme Discussion Vote</h2>
-        <!-- <h3>Please select your language</h3> -->
-        <h3>Voting has not yet opened.</h3>
+        <h3>Please select your language</h3>
         <div>
-            <!-- <a href="index.php?event=57&lang=en" class="">English</a>
-                      <a href="index.php?event=61&lang=fr">Fran&ccedil;ais</a> -->
+            <a href="index.php?event=57&lang=en" class="">English</a>
+            <a href="index.php?event=61&lang=fr">Fran&ccedil;ais</a>
     	</div>
     </div>
 </body>
