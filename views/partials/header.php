@@ -71,9 +71,9 @@
 	        <div class="user_nav">
 	        <?php if($event->id==57){?>
     			<a href="#" class="active">EN</a> |
-    			<a href="index.php?event=61&lang=fr" class="">FR</a>
+    			<a href="index.php?event=61&lang=fr&do=<?php echo ($page); ?>" class="">FR</a>
     	    <?php } elseif($event->id==61){?>
-    	        <a href="index.php?event=57&lang=en" class="">EN</a> |
+    	        <a href="index.php?event=57&lang=en&do=<?php echo ($page); ?>" class="">EN</a> |
     	        <a href="#" class="active">FR</a>
     		<?php }else{ ?>
 	        <a href="<?php echo BASE_URL;?>">home</a> | 
@@ -108,7 +108,7 @@
 		    </h1>
 	        <!-- <div class="grid_2"> -->
 	            <ul id="main-navigation">
-                	<!-- <li><a href="index.php?event=<?php echo $data['event']->id; ?>"<?php if($page == 'about'){ echo(" class=\"active\"");} ?>>about</a></li> --><?php if(is('user')&&($event->end==0 || $event->end > time())){?><li><a href="index.php?do=vote&event=<?php echo $data['event']->id; ?>"<?php if($page == 'vote'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("voter");}else{echo('vote');}?></a></li><?php }?><li class="last"><a href="index.php?do=results&event=<?php echo $data['event']->id; ?>"<?php if($page == 'results'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("r&eacute;sultats");}else{echo('results');}?></a></li>
+                	<!-- <li><a href="index.php?event=<?php echo $data['event']->id; ?>"<?php if($page == 'about'){ echo(" class=\"active\"");} ?>>about</a></li> --><?php if($event->id!=57&&$event->id!=61){?><?php if(is('user')&&($event->end==0 || $event->end > time())){?><li><a href="index.php?do=vote&event=<?php echo $data['event']->id; ?>"<?php if($page == 'vote'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("voter");}else{echo('vote');}?></a></li><?php }?><li class="last"><a href="index.php?do=results&event=<?php echo $data['event']->id; ?>"<?php if($page == 'results'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("r&eacute;sultats");}else{echo('results');}?></a></li><?php } ?>
                 </ul>
 		    <!-- </div> -->
 		<?php //admin nav
