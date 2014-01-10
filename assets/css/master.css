@@ -41,6 +41,9 @@ a.yellow {
 a.green {
 	color: #57a50b;
 }
+.black{
+	color: #000;
+}
 
 a:hover {
 	color: #000;
@@ -314,16 +317,17 @@ ul#main-navigation {
 	font-size: 11px;
 	display: block;
 }
-
 #category-nav, #category-nav li {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
-
+#category-nav{
+	margin-bottom: 10px;
+}
 #category-nav ul {
-	margin: 0 20px;
 	padding: 10px 0;
+	margin: 0 20px;
 }
 
 #category-nav li {
@@ -331,20 +335,46 @@ ul#main-navigation {
 	padding: 0 5px 5px 0;
 }
 
-#category-nav li a {
+#category-nav li a,  span.counter{
 	color: #999;
 	text-decoration: none;
-	display: block;
+	display: inline-block;
 	font-size: 15px;
 	line-height: 20px;
 	border: 1px solid #ccc;
 	padding: 4px 6px 6px;
 	font-weight: bold;
 }
+span.counter{
+	margin-left: 5px;
+}
+#category-nav li span.counter{
+	border-left: 0;
+}
+
+.counters{
+	text-align: right;
+	margin-bottom: 10px;
+}
+.muted{
+	color: #ccc;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 18px;
+	padding-right: 2px;
+	padding-left: 2px;
+}
+
 #category-nav li a:hover, #category-nav li a.active{
 	color: #fff!important;
 	background-color: #000;
 	border-color: #000!important;
+}
+#category-nav li span{
+	background-color: #fff;
+}
+#category-nav li a:hover span.count, #category-nav li a.active span.count{
+	background-color: #fff;
 }
 
 #page-heading {
@@ -855,8 +885,9 @@ div.pager .table-options {
 	display: block;
 	font-weight: bold;
 	border: 1px solid #ebebeb;
-	padding: 2px 8px 7px;
+	padding: 6px 8px 7px;
 	max-width: 100%;
+	line-height: 100%;
 }
 
 /* TABS																			*/

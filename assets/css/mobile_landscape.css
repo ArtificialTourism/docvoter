@@ -41,7 +41,9 @@ body { background-position:0 30px; }
 .show-on-tablet { display:none !important; }
 .panel { margin-bottom:6%; }
 .page-wrap { margin:0 6%; }
-
+.counters{
+	text-align: left;
+}
 #search { position:absolute; width:160px; top:45px; right:6%; }
 #search input.go { top:2px; right:2px; }
 #subpages .subpage-wrap { margin:0; }

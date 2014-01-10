@@ -165,6 +165,9 @@ body {
 #subpages .subpage-wrap { margin:0 4%; }
 #page-heading { position:relative; }
 #page-heading .align_right { position:absolute; width:50%; top:22px; right:1%; }
+.counters{
+	text-align: left;
+}
 .page-wrap { margin:0 4%; }
 .panel { margin-bottom:3%; }
 .alert-wrapper .alert-text { line-height:20px; min-height:26px; margin:0 4%; }

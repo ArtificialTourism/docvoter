@@ -40,7 +40,9 @@ body { -webkit-text-size-adjust:100%; min-width: 100%; }
 .show-on-tablet { display:none !important; }
 .panel { margin-bottom:10px; }
 .page-wrap { margin:0 6%; }
-
+.counters{
+	text-align: left;
+}
 #search, #subpages { display:none; }
 
 .title-crumbs { display:block; padding-bottom:20px }
