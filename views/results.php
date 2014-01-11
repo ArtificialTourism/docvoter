@@ -7,8 +7,9 @@
         		    <h2><?php echo($event->summary);?></h2>
         		    <?php }?>
     		       <ul id="category-nav">
-       		           <li><a id="top50" class="active" href=""><?php if (count($top50) < 50) { echo('view all'); } else { echo('top '.count($top50)); } ?></a></li><?php $cols = array('67403a','6b8f66','e82c2a','ec248e','d8a50e','339999','ff5e10','0c8b32','b0126f','062b60','a17317','53b9be','adadad','f83f5f');
-       		          $count=0;
+                   <?php if ($event->id!=64) { ?>
+       		           <li><a id="top50" class="active" href=""><?php if (count($top50) < 50) { echo('view all'); } else { echo('top '.count($top50)); } ?></a></li> <?php } ?><?php $cols = array('67403a','6b8f66','e82c2a','ec248e','d8a50e','339999','ff5e10','0c8b32','b0126f','062b60','a17317','53b9be','adadad','f83f5f');
+                      $count=0;
        		           foreach($collection['categories'] as $cat_id=>$category){
        		               $clean_cat = dirify($category);
                               if ($collection['name']=='steep' ){
@@ -24,7 +25,7 @@
        		       </ul>
     		</div>
     		<div class="grid_1 align_right add-driver">
-    				
+
     		</div>
 	    </div>
     </div>
@@ -57,6 +58,9 @@
         		       </ul>
         		       <?php } else { echo('<h3 class="content no-cap push-down">This event has no drivers to display.');}?>
     		     </div>
+                 <?php if (isset($event->description)&&$event->description!=''){?>
+                <p><?php echo($event->description);?></p>
+                <?php }?>
     		</div>
 	    </div>
 </div>
@@ -67,6 +71,8 @@
 <link rel="stylesheet" href="assets/js/poshytip-1.1/src/tip-twitter/tip-twitter.css" type="text/css" media="screen" />
 <script type="text/javascript">
 $(document).ready(function() {
+    $("#vote").attr("href", "#");
+    $("#vote").addClass('disabled');
     //nav
     $('#category-nav li a').poshytip({
         content: 'click tab to see more drivers',
@@ -76,7 +82,7 @@ $(document).ready(function() {
     	alignY: 'bottom',
     	timeOnScreen:3000,
     	allowTipHover: false,
-    	offsetY: 8,	
+    	offsetY: 8,
         slide: false
     });
     $('#top50').poshytip('disable');
@@ -86,7 +92,7 @@ $(document).ready(function() {
              $('#category-nav li a').poshytip('enable');
             $(this).addClass('active');
             $(this).poshytip('disable');
-            $('#vote-cloud li').hide();   
+            $('#vote-cloud li').hide();
             var class_to_show = $(this).attr('id');
             $('#vote-cloud li.'+class_to_show).show();
             resizeCards('#vote-cloud li.'+class_to_show+' a');
@@ -105,8 +111,8 @@ $(document).ready(function() {
         $(cards).each(function () {
             votes.push(parseInt($(this).attr('value')));
         });
-         // Pull out the minimum and maximum vote count from our tags. 
-         //Creating a spread to be used in font size calculations. 
+         // Pull out the minimum and maximum vote count from our tags.
+         //Creating a spread to be used in font size calculations.
         var maxVote = Array.max(votes);
         var minVote = Array.min(votes);
         spread = maxVote-minVote;
@@ -141,5 +147,16 @@ $(document).ready(function() {
         });
     }
     resizeCards("#vote-cloud li a");
+    var currsection;
+    var event_id=<?php echo $event->id;?>;
+    if (event_id==64){
+        var btn=$('#category-nav li #schools');
+        btn.addClass('active');
+        btn.poshytip('disable');
+        $('#vote-cloud li').hide();
+        currsection = 'schools';
+        $('#vote-cloud li.'+currsection).show();
+        resizeCards('#vote-cloud li.'+currsection+' a');
+    }
 });
 </script>

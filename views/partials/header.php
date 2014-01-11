@@ -76,11 +76,11 @@
     	        <a href="index.php?event=57&lang=en&do=<?php echo ($page); ?>" class="">EN</a> |
     	        <a href="#" class="active">FR</a>
     		<?php }else{ ?>
-	        <a href="<?php echo BASE_URL;?>">home</a> | 
+	        <a href="<?php echo BASE_URL;?>">home</a> |
     		<?php if (!is('user')||$_SESSION['user_name']=='anonymous'): ?>
     		    <a href="index.php?do=login" class="signout">sign in</a>
     		<?php else: ?>
-    		    <?php echo($_SESSION['user_name']);?>: 
+    		    <?php echo($_SESSION['user_name']);?>:
     		    <?php if(is('admin')): ?>
     		    <a href="index.php?do=events"<?php if(in_array($page,$admin_pages)){ echo(" class=\"active\"");} ?>>admin</a> |
     		    <?php endif; ?>
@@ -91,9 +91,9 @@
 		    </div>
 		</div>
 		</div>
-	</div>	
+	</div>
 <div id="header">
-    <!-- BEGIN HEADER -->	
+    <!-- BEGIN HEADER -->
     <div class="container_4">
 		<div class="grid-wrap clearfix" id="header-holder">
 		<?php
@@ -108,7 +108,7 @@
 		    </h1>
 	        <!-- <div class="grid_2"> -->
 	            <ul id="main-navigation">
-                	<!-- <li><a href="index.php?event=<?php echo $data['event']->id; ?>"<?php if($page == 'about'){ echo(" class=\"active\"");} ?>>about</a></li> --><?php if($event->id!=57&&$event->id!=61){?><?php if(is('user')&&($event->end==0 || $event->end > time())){?><li><a href="index.php?do=vote&event=<?php echo $data['event']->id; ?>"<?php if($page == 'vote'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("voter");}else{echo('vote');}?></a></li><?php }?><li class="last"><a href="index.php?do=results&event=<?php echo $data['event']->id; ?>"<?php if($page == 'results'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("r&eacute;sultats");}else{echo('results');}?></a></li><?php } ?>
+                	<!-- <li><a href="index.php?event=<?php echo $data['event']->id; ?>"<?php if($page == 'about'){ echo(" class=\"active\"");} ?>>about</a></li> --><?php if($event->id!=57&&$event->id!=61){?><?php if(is('user')&&($event->end==0 || $event->end > time())){?><li><a id="vote" href="index.php?do=vote&event=<?php echo $data['event']->id; ?>"<?php if($page == 'vote'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("voter");}else{echo('vote');}?></a></li><?php }?><li class="last"><a id="results" href="index.php?do=results&event=<?php echo $data['event']->id; ?>"<?php if($page == 'results'){ echo(" class=\"active\"");} ?>><?php if($data['event']->id==61){echo("r&eacute;sultats");}else{echo('results');}?></a></li><?php } ?>
                 </ul>
 		    <!-- </div> -->
 		<?php //admin nav
@@ -128,7 +128,7 @@
     		<div class="grid_2 align_right">
 
     		</div>
-		    
+
 		<?php }?>
 		</div>
 	</div>

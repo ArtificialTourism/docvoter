@@ -67,10 +67,13 @@
     		       </ul>
     		       <?php } else { echo('<h3 class="content no-cap push-down">This event has no drivers yet. <a href="index.php?do=card&event='.$event->id.'">+ add your driver here</a>.</h3>');}?>
     		     </div>
-    		     <p>
+                 <?php if (isset($event->description)&&$event->description!=''){?>
+                <p><?php echo($event->description);?></p>
+                <?php }?>
+                <p>
                  <?php if($data['event']->id==61){echo("Cliquez sur les onglets ci-dessus pour voir plus de moteurs dans chaque cat&eacute;gorie.");}
                  else{echo('Click on the tabs above to vote on the drivers under each category.');}?>
-                 <?php if ($event->id==64) { ?> You can choose <b>three</b> drivers in each category.<?php }?>
+                <?php if ($event->id==64) { ?> You can choose <b>three</b> drivers in each category.<?php }?>
                  </p>
     		</div>
 	    </div>
@@ -93,6 +96,11 @@ $(document).ready(function() {
         sectionvotes[element]=0;
     });
     var totalvotes=0;
+
+    var result_link = $("#results").attr("href");
+    $("#results").attr("href", "#");
+    $("#results").addClass('disabled');
+
 	//navigation
 	$('#category-nav li a').poshytip({
         content: 'click tab to see more drivers',
@@ -114,6 +122,7 @@ $(document).ready(function() {
             $(this).poshytip('disable');
             $('#vote-cloud li').hide();
             currsection = $(this).attr('id');
+            $("#section_votes").text(sectionvotes[currsection]);
             $('#vote-cloud li.'+currsection).show();
         }
     });
@@ -142,6 +151,10 @@ $(document).ready(function() {
                     sectionvotes[currsection]= sectionvotes[currsection]+1;
                     $("#section_votes").text(sectionvotes[currsection]);
                     totalvotes = totalvotes +1;
+                    if (totalvotes==12){
+                        $("#results").attr("href", result_link);
+                        $("#results").removeClass('disabled');
+                    }
                     $("#total_votes").text(totalvotes);
                     if (sectionvotes[currsection]==3){
                         $("."+currsection+" .card").poshytip('update', 'maximum votes reached');
@@ -164,7 +177,7 @@ $(document).ready(function() {
                 success: function(data){/*... it worked*/
                        sectionvotes[currsection]=sectionvotes[currsection]-1;
                        $("#section_votes").text(sectionvotes[currsection]);
-                       totalvotes = totalvotes ;
+                       totalvotes = totalvotes -1;
                        $("#total_votes").text(totalvotes);
                        $("."+currsection+" .card").poshytip('update', 'click to vote');
                        $("."+currsection+" .card.voted").poshytip('update', 'click title to cancel');

@@ -258,16 +258,23 @@ ul#main-navigation {
 	border-bottom: 1px solid #fff;
 	font-size: 17px;
 }
+#main-navigation li a.disabled{
+	color: #ccc;
+}
 #main-navigation li.last a {
 	background-image: none;
-}
-#main-navigation li a.active,#main-navigation li a.active:hover {
-	color: #000;
-	border-bottom: 1px solid #000;
 }
 #main-navigation li a:hover{
 	background-color: #eee;
 	border-bottom: 1px solid #999;
+}
+#main-navigation li a.disabled:hover{
+	background-color: #fff;
+	border-bottom: 1px solid #fff;
+}
+#main-navigation li a.active,#main-navigation li a.active:hover {
+	color: #000;
+	border-bottom: 1px solid #000;
 }
 
 #search form {
