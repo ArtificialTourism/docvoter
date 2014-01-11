@@ -73,6 +73,7 @@
 $(document).ready(function() {
     $("#vote").attr("href", "#");
     $("#vote").addClass('disabled');
+    $("#event-home a").attr("href", "#");
     //nav
     $('#category-nav li a').poshytip({
         content: 'click tab to see more drivers',

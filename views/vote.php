@@ -124,6 +124,7 @@ $(document).ready(function() {
             currsection = $(this).attr('id');
             $("#section_votes").text(sectionvotes[currsection]);
             $('#vote-cloud li.'+currsection).show();
+            $(".card").poshytip('hide');
         }
     });
     //tooltip

@@ -100,7 +100,7 @@
 		    //if we are not on admin and have event
 		   //var_dump($data['event']);
 		    if(!in_array($page, $admin_pages) && isset($data['event'])) {?>
-		    <h1 class="grid_3">
+		    <h1 id="event-home" class="grid_3">
 		        <a href="<?php echo BASE_URL;?>index.php?event=<?php echo $data['event']->id; ?>">
 		            <span class="org"><?php if(isset($data['event_org']))echo $data['event_org']->name;?>&nbsp;</span>
 			        <?php echo $data['event']->name; ?>
