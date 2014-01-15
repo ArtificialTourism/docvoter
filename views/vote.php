@@ -92,9 +92,11 @@ $(document).ready(function() {
     var currsection;
     var sections = ['<?php echo implode("','",$clean_cats); ?>'];
     var sectionvotes = [];
-    sections.forEach(function(element) {
-        sectionvotes[element]=0;
-    });
+
+    for (var i = 0; i < sections.length; i++) {
+        sectionvotes[sections[i]]=0;
+    }
+
     var totalvotes=0;
 
     var result_link = $("#results").attr("href");
@@ -141,7 +143,6 @@ $(document).ready(function() {
     $(".card").click(function(){
         //voting stuff
         var currcard = $(this);
-        console.log(sectionvotes[currsection]);
         if(!currcard.hasClass('voted')&&sectionvotes[currsection]<3) {
         	//vote
         	var query_url = "includes/callAPI.php?action=vote/post&event_id="+event_id+"&owner="+owner+"&card_id="+$(this).attr('id');
