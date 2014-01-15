@@ -342,7 +342,7 @@ ul#main-navigation {
 	padding: 0 5px 5px 0;
 }
 
-#category-nav li a,  span.counter{
+#category-nav li a,  div.counter{
 	color: #999;
 	text-decoration: none;
 	display: inline-block;
@@ -352,11 +352,8 @@ ul#main-navigation {
 	padding: 4px 6px 6px;
 	font-weight: bold;
 }
-span.counter{
+div.counter{
 	margin-left: 5px;
-}
-#category-nav li span.counter{
-	border-left: 0;
 }
 
 .counters{

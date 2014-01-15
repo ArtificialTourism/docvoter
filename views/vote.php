@@ -33,7 +33,7 @@
             <div class="grid_2">
                 <div class="counters">
                     <!-- <a href="index.php?do=card&event=<?php echo $event->id?>" class="button blue large">+ add driver</a> -->
-            <span class="counter">section votes <span id="section_votes" class="curr_count black">0</span><span class='muted'>/</span>3</span><span class="counter">total votes <span id="total_votes" class="curr_count black">0</span><span class='muted'>/</span>12</span></span>
+            <div class="counter">section votes <span id="section_votes" class="curr_count black">0</span><span class='muted'>/</span>3</div><div class="counter">total votes <span id="total_votes" class="curr_count black">0</span><span class='muted'>/</span>12</span></div>
 
                 </div>
             </div>
