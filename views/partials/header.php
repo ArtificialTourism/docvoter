@@ -76,7 +76,7 @@
     	        <a href="index.php?event=57&lang=en&do=<?php echo ($page); ?>" class="">EN</a> |
     	        <a href="#" class="active">FR</a>
     		<?php }else{ ?>
-	        <a href="<?php echo BASE_URL;?>">home</a> |
+	        <!-- <a href="<?php echo BASE_URL;?>">home</a> | -->
     		<?php if (!is('user')||$_SESSION['user_name']=='anonymous'): ?>
     		    <a href="index.php?do=login" class="signout">sign in</a>
     		<?php else: ?>
