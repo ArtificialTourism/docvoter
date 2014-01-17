@@ -65,7 +65,7 @@
 	    <div class="container_4">
         <div class="grid-wrap">
             <div class="home">
-	          <a href="<?php echo BASE_URL;?>" class="tab">vote</a><span>drivers of change</span>
+	          <a href="#" class="tab">vote</a><span>drivers of change</span>
 	        </div>
 	        <div class="align_right float_right">
 	        <div class="user_nav">
