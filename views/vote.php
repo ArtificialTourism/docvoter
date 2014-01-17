@@ -6,6 +6,9 @@
             <?php if (isset($event->summary)&&$event->summary!=''){?>
                 <h2><?php echo($event->summary);?></h2>
                 <?php }?>
+                <?php if (isset($event->description)&&$event->description!=''){?>
+                <p><?php echo($event->description);?></p>
+                <?php }?>
             </div>
          </div>
     </div>
@@ -67,13 +70,11 @@
     		       </ul>
     		       <?php } else { echo('<h3 class="content no-cap push-down">This event has no drivers yet. <a href="index.php?do=card&event='.$event->id.'">+ add your driver here</a>.</h3>');}?>
     		     </div>
-                 <?php if (isset($event->description)&&$event->description!=''){?>
-                <p><?php echo($event->description);?></p>
-                <?php }?>
                 <p>
                  <?php if($data['event']->id==61){echo("Cliquez sur les onglets ci-dessus pour voir plus de moteurs dans chaque cat&eacute;gorie.");}
-                 else{echo('Click on the tabs above to vote on the drivers under each category.');}?>
-                <?php if ($event->id==64) { ?> You can choose <b>three</b> drivers in each category.<?php }?>
+                 else{echo('Please note that you don’t need to be registered to place your votes. <br/>
+There are 4 categories to choose from, please click on the links above to vote on the drivers under each category. <br/>
+You can choose <b>three</b> drivers in each category, with a <b>total of 12 votes</b>. Once you have selected all drivers, please click on the ‘results’ button to submit your choice.');}?>
                  </p>
     		</div>
 	    </div>
@@ -143,7 +144,7 @@ $(document).ready(function() {
     $(".card").click(function(){
         //voting stuff
         var currcard = $(this);
-        if(!currcard.hasClass('voted')&&sectionvotes[currsection]<3) {
+        if(!currcard.hasClass('voted')&&sectionvotes[currsection]<3&&totalvotes<12) {
         	//vote
         	var query_url = "includes/callAPI.php?action=vote/post&event_id="+event_id+"&owner="+owner+"&card_id="+$(this).attr('id');
             currcard.poshytip('update', 'sending...');

@@ -385,6 +385,15 @@ div.counter{
 	color: #535353;
 	padding: 15px 0 10px;
 }
+#page-heading h2{
+	padding-bottom: 0;
+	margin-bottom: .3em;
+}
+#page-heading p{
+	font-size: 15px;
+	line-height: 135%;
+}
+
 
 .title-crumbs {
 	display: block;
