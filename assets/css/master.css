@@ -1965,6 +1965,10 @@ a.social-to:hover,a.technological-to:hover,a.economic-to:hover,a.environmental-t
 .card_info{
 	color: #111;
 }
+
+.instructions p{
+	margin-bottom: .5em;
+}
 .completed{
 	color: #999;
 }

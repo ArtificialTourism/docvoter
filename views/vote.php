@@ -70,12 +70,12 @@
     		       </ul>
     		       <?php } else { echo('<h3 class="content no-cap push-down">This event has no drivers yet. <a href="index.php?do=card&event='.$event->id.'">+ add your driver here</a>.</h3>');}?>
     		     </div>
-                <p>
+                <div class="instructions">
                  <?php if($data['event']->id==61){echo("Cliquez sur les onglets ci-dessus pour voir plus de moteurs dans chaque cat&eacute;gorie.");}
-                 else{echo('Please note that you don’t need to be registered to place your votes. <br/>
-There are 4 categories to choose from, please click on the links above to vote on the drivers under each category. <br/>
-You can choose <b>three</b> drivers in each category, with a <b>total of 12 votes</b>. Once you have selected all drivers, please click on the <b>‘results’ button</b> to submit your choice.');}?>
-                 </p>
+                 else{echo('<p>Please note that you don’t need to be registered to participate in this survey or to place votes for all available categories. </p>
+<p>There are 4 categories to choose from, please click on the links above to vote on the drivers under each of a category. </p>
+<p>You can choose up to <b>three</b> drivers in each category, with up to <b>12 votes</b> in total. Once you have selected drivers for those categories that are relevant to you, please click on the <b>‘results’ button</b> to submit your choice.</p>');}?>
+                 </div>
     		</div>
 	    </div>
 </div>
@@ -154,13 +154,13 @@ $(document).ready(function() {
                     sectionvotes[currsection]= sectionvotes[currsection]+1;
                     $("#section_votes").text(sectionvotes[currsection]);
                     totalvotes = totalvotes +1;
-                    if (totalvotes==12){
+                    if (totalvotes==1){
                         $("#results").attr("href", result_link);
                         $("#results").removeClass('disabled');
                     }
                     $("#total_votes").text(totalvotes);
                     if (sectionvotes[currsection]==3){
-                        $("."+currsection+" .card").poshytip('update', 'maximum votes reached');
+                        $("."+currsection+" .card").poshytip('update', 'section complete');
                         $("."+currsection+" .card.voted").poshytip('update', 'click title to cancel');
                     }
 	                currcard.addClass('voted');

@@ -2,10 +2,13 @@
 <div class="container_4">
 	<div id="page-heading" class="clearfix">
 	    <div class="grid-wrap">
-    		<div class="grid_3">
+    		<div class="grid_4">
     		      <?php if (isset($event->summary)&&$event->summary!=''){?>
         		    <h2><?php echo($event->summary);?></h2>
         		    <?php }?>
+                    <?php if (isset($event->description)&&$event->description!=''){?>
+                <p><?php echo($event->description);?></p>
+                <?php }?>
     		       <ul id="category-nav">
                    <?php if ($event->id!=64) { ?>
        		           <li><a id="top50" class="active" href=""><?php if (count($top50) < 50) { echo('view all'); } else { echo('top '.count($top50)); } ?></a></li> <?php } ?><?php $cols = array('67403a','6b8f66','e82c2a','ec248e','d8a50e','339999','ff5e10','0c8b32','b0126f','062b60','a17317','53b9be','adadad','f83f5f');
@@ -58,9 +61,6 @@
         		       </ul>
         		       <?php } else { echo('<h3 class="content no-cap push-down">This event has no drivers to display.');}?>
     		     </div>
-                 <?php if (isset($event->description)&&$event->description!=''){?>
-                <p><?php echo($event->description);?></p>
-                <?php }?>
     		</div>
 	    </div>
 </div>
