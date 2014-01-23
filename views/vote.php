@@ -74,7 +74,7 @@
                  <?php if($data['event']->id==61){echo("Cliquez sur les onglets ci-dessus pour voir plus de moteurs dans chaque cat&eacute;gorie.");}
                  else{echo('<p>Please note that you don’t need to be registered to participate in this survey or to place votes for all available categories. </p>
 <p>There are 4 categories to choose from, please click on the links above to vote on the drivers under each of a category. </p>
-<p>You can choose up to <b>three</b> drivers in each category, with up to <b>12 votes</b> in total. Once you have selected drivers for those categories that are relevant to you, please click on the <b>‘results’ button</b> to submit your choice.</p>');}?>
+<p>You can choose up to <b>three</b> drivers in each category, with up to <b>12 votes</b> in total. Once you have selected drivers for those categories that are relevant to you click on <b>‘results’</b>.</p>');}?>
                  </div>
     		</div>
 	    </div>
